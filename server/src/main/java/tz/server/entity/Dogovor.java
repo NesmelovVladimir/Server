@@ -25,6 +25,9 @@ public class Dogovor implements Serializable {
     @Column(name = "update_time")
     private Timestamp updateTime;
 
+    @Column(name = "coordinates")
+    private String coordinates;
+
     public UUID getDogovorId() {
         return dogovorId;
     }
@@ -55,6 +58,14 @@ public class Dogovor implements Serializable {
 
     public void setUpdateTime(Timestamp updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(String coodrinates) {
+        this.coordinates = coodrinates;
     }
 }
 

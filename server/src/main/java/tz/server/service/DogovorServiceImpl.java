@@ -6,6 +6,7 @@ import tz.server.entity.Dogovor;
 import tz.server.repository.DogovorRepository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class DogovorServiceImpl implements DogovorService {
@@ -17,4 +18,16 @@ public class DogovorServiceImpl implements DogovorService {
     public List<Dogovor> readAll() {
         return dogovorRepository.findAll();
     }
+
+    @Override
+    public Dogovor findByDogovorId(UUID dogovorId) {
+        return dogovorRepository.findByDogovorId(dogovorId);
+    }
+
+    @Override
+    public Dogovor save(Dogovor dogovor) {
+        return dogovorRepository.save(dogovor);
+    }
+
+
 }

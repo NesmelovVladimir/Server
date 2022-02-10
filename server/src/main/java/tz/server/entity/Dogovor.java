@@ -1,5 +1,7 @@
 package tz.server.entity;
 
+import org.postgis.MultiPolygon;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,6 +9,7 @@ import javax.persistence.Table;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.UUID;
+
 
 @Entity
 @Table(name = "rdogovor")
@@ -27,6 +30,9 @@ public class Dogovor implements Serializable {
 
     @Column(name = "coordinates")
     private String coordinates;
+
+    @Column(name = "geom")
+    private MultiPolygon geom;
 
     public UUID getDogovorId() {
         return dogovorId;
@@ -66,6 +72,14 @@ public class Dogovor implements Serializable {
 
     public void setCoordinates(String coodrinates) {
         this.coordinates = coodrinates;
+    }
+
+    public MultiPolygon getGeom() {
+        return geom;
+    }
+
+    public void setGeom(MultiPolygon geom) {
+        this.geom = geom;
     }
 }
 

@@ -8,4 +8,8 @@ import java.util.UUID;
 
 public interface DogovorRepository extends JpaRepository<Dogovor, UUID> {
     List<Dogovor> findAll();
+
+    Dogovor findByDogovorId(UUID dogovorId);
+
+    Dogovor save(Dogovor dogovor);
 }

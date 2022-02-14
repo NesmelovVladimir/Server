@@ -2,6 +2,7 @@ package tz.server.controller;
 
 import org.postgis.MultiPolygon;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import tz.server.entity.Robject;
 import tz.server.service.RobjectService;
@@ -19,6 +20,15 @@ public class Controller {
     @Autowired
     private RobjectService robjectService;
 
+    @Value("${spring.datasource.url}")
+    private String url;
+
+    @Value("${spring.datasource.username}")
+    private String user;
+
+    @Value("${spring.datasource.password}")
+    private String password;
+
     @GetMapping(value = "/")
     public List<Robject> readAll() {
         return robjectService.readAll();
@@ -33,9 +43,7 @@ public class Controller {
     }
 
     public Connection connect() throws SQLException {
-        return DriverManager.getConnection("jdbc:postgresql://localhost:5432/TEST", "postgres", "sp");
-
-        //"--spring.datasource.url", "--spring.datasource.username", "--spring.datasource.password");
+        return DriverManager.getConnection(url, user, password);
     }
 
     public void updateGeometry(UUID objectId, MultiPolygon geom) {

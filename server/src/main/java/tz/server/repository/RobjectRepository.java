@@ -12,7 +12,7 @@ import java.util.UUID;
 
 public interface RobjectRepository extends JpaRepository<Robject, UUID> {
 
-    @Query(value = "select u.object_id,u.coordinates,st_astext(u.geom) as geom from robject u where u.coordinates is not null limit 100", nativeQuery = true)
+    @Query(value = "select u.object_id,u.coordinates,st_astext(u.geom) as geom from robject u where u.coordinates is not null limit 10", nativeQuery = true)
     List<Robject> findAll();
 
     @Modifying

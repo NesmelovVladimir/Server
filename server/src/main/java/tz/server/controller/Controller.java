@@ -35,10 +35,11 @@ public class Controller {
     }
 
     @PutMapping("/{objectId}")
-    Robject robject(@RequestBody Robject newRobject, @PathVariable UUID objectId) {
+    Robject robject(@RequestBody Robject newRobject, @PathVariable UUID objectId) throws Exception {
         Robject robject;
         robject = robjectService.findByObjectId(objectId);
-        updateGeometry(objectId, newRobject.getGeom());
+        MultiPolygon geom;
+        updateGeometry(objectId, geom = new MultiPolygon(newRobject.getGeom()));
         return robjectService.save(robject);
     }
 

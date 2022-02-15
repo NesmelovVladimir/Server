@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.UUID;
 
 
@@ -22,7 +23,7 @@ public class Robject implements Serializable {
     private String coordinates;
 
     @Column(name = "geom")
-    private MultiPolygon geom;
+    private String geom;
 
     public UUID getObjectId() {
         return objectId;
@@ -40,12 +41,12 @@ public class Robject implements Serializable {
         this.coordinates = coodrinates;
     }
 
-    public MultiPolygon getGeom() {
-        return geom;
+    public String getGeom() {
+            return geom;
     }
 
     public void setGeometry(MultiPolygon geom) {
-        this.geom = geom;
+        this.geom = geom.toString();
     }
 }
 

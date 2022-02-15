@@ -8,6 +8,8 @@ import java.util.UUID;
 public interface RobjectService {
     List<Robject> readAll();
 
+    void saveGeom(UUID objectId, String geom);
+
     Robject findByObjectId(UUID objectId);
 
     Robject save(Robject robject);

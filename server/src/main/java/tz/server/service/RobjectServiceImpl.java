@@ -29,4 +29,9 @@ public class RobjectServiceImpl implements RobjectService {
         return robjectRepository.save(robject);
     }
 
+    @Override
+    public void saveGeom(UUID objectId, String geom) {
+        robjectRepository.saveGeom(objectId, geom);
+    }
+
 }

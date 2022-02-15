@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.SQLException;
 import java.util.UUID;
 
 
@@ -42,7 +41,7 @@ public class Robject implements Serializable {
     }
 
     public String getGeom() {
-            return geom;
+        return geom;
     }
 
     public void setGeometry(MultiPolygon geom) {

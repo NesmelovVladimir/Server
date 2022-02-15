@@ -38,8 +38,8 @@ public class Controller {
     Robject robject(@RequestBody Robject newRobject, @PathVariable UUID objectId) throws Exception {
         Robject robject;
         robject = robjectService.findByObjectId(objectId);
-        MultiPolygon geom;
-        updateGeometry(objectId, geom = new MultiPolygon(newRobject.getGeom()));
+        MultiPolygon geom = new MultiPolygon(newRobject.getGeom());
+        updateGeometry(objectId, geom);
         return robjectService.save(robject);
     }
 
